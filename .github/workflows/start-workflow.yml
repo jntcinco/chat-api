@@ -12,5 +12,5 @@ on:
   workflow_dispatch:
 
 jobs:
-  call-workflow-in-local-repo:
-    uses: ./.github/workflows/java-ci-maven.yml
+  call-workflow-using-branch:
+    uses: jntcinco/chat-api/.github/workflows/java-ci-maven.yml@main 
