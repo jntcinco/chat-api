@@ -9,7 +9,12 @@
 name: Java CI with Maven
 
 on:
-  workflow_call:
+  #workflow_call:
+  workflow_run:
+    workflows: [Startup Workflow]
+    branches: [master]
+    types:
+      - completed
 
 jobs:
   build:
