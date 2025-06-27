@@ -26,7 +26,18 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      #run: mvn -B package --file pom.xml
+      run: mvn -B clean verify
+    - name: Build and push Docker image
+      uses: docker/build-push-action@v5
+      with:
+        context: .
+        push: true
+        tags: ${{ steps.meta.outputs.tags }} 
+        labels: ${{ steps.meta.outputs.labels }}
+        secrets: |
+            "["+ DOCKER_USERNAME + "="+ secrets.DOCKER_USERNAME + "]",
+            "["+ DOCKER_PASSWORD + "="+ secrets.DOCKERHUB_ACCESS_TOKEN + "]"
   #call-workflow:
   #  uses: jntcinco/chat-api/.github/workflows/docker-image.yml@master
   #call-workflow-in-local-repo:
