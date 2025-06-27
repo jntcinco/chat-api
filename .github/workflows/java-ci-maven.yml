@@ -30,6 +30,6 @@ jobs:
   #  uses: ./.github/workflows/docker-image.yml
   #call-workflow-using-release:
   #  uses: jntcinco/chat-api/.github/workflows/docker-image.yml@v1
-  call-workflow-using-branch:
-    uses: jntcinco/chat-api/.github/workflows/docker-image.yml@master   
+  #call-workflow-using-branch:
+  #  uses: jntcinco/chat-api/.github/workflows/docker-image.yml@master   
 
