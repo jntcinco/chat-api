@@ -12,7 +12,10 @@ name: Publish Docker image
 on:
   #release:
   #  types: [published]
-  workflow_call:
+  workflow_run:
+    workflows: ["Java CI with Maven"]
+    types:
+      - completed
 
 jobs:
   push_to_registry:
