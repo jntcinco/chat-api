@@ -13,4 +13,4 @@ on:
 
 jobs:
   call-workflow-using-branch:
-    uses: jntcinco/chat-api/.github/workflows/java-ci-maven.yml@main 
+    uses: jntcinco/chat-api/.github/workflows/java-ci-maven.yml@master 
