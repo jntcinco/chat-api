@@ -27,6 +27,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+  call-workflow:
+    uses: jntcinco/chat-api/.github/workflows/docker-image.yml@master
   #call-workflow-in-local-repo:
   #  uses: ./.github/workflows/docker-image.yml
   #call-workflow-using-release:
