@@ -16,7 +16,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Step name
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-west-2
+          role-to-assume: ${{ secrets.SECRETS_AWS_PACKAGING_ROLE_TO_ASSUME }}
+          role-duration-seconds: 900
+          role-session-name: SecretsManagerFetch
+      - name: Get AWS Secret
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
