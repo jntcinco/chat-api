@@ -29,3 +29,9 @@ jobs:
         with:
           secret-ids: |
             test/GithubAction/hello
+      - name: Print AWS Secrets
+        shell: bash
+        run: |
+          echo "Test Example: $TEST_EXAMPLE"
+          echo "Java Home: $JAVA_HOME"
+          
