@@ -17,7 +17,7 @@ jobs:
 
     steps:
       - name: Step name
-      - uses: aws-actions/aws-secretsmanager-get-secrets@v2
+        uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
             test/GithubAction/hello
