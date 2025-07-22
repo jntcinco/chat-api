@@ -19,19 +19,24 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: us-west-2
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          role-duration-seconds: 900
-          role-session-name: SecretsManagerFetch
+          aws-region: us-west-2
+          
       - name: Get AWS Secret
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
             arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
+            parse-json-secrets: true
+            
       - name: Print AWS Secrets
-        shell: bash
         run: |
-          echo "Test Example: $TEST_EXAMPLE"
-          echo "Java Home: $JAVA_HOME"
+          echo "Test Example: ${{ env.TEST_EXAMPLE }}"
+          echo "Java Home: ${{ env.JAVA_HOME }}"
+          
+      - name: Test output
+        run: |
+          echo "TEST_EXAMPLE: ${{ secrets.TEST_EXAMPLE }}"
+          echo "JAVA_HOME: ${{ secrets.JAVA_HOME }}"
           
