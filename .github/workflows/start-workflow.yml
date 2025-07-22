@@ -11,6 +11,13 @@ name: Startup Workflow
 on:
   workflow_dispatch:
 
-#jobs:
-  #call-workflow-using-branch:
-    #uses: jntcinco/chat-api/.github/workflows/java-ci-maven.yml@master 
+jobs:
+  aws-secret-manager:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Step name
+      uses: aws-actions/aws-secretsmanager-get-secrets@v2
+      with:
+        secret-ids: |
+          test/GithubAction/hello
