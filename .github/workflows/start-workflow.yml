@@ -28,7 +28,7 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
         with:
           secret-ids: |
-            test/GithubAction/hello
+            arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
       - name: Print AWS Secrets
         shell: bash
         run: |
