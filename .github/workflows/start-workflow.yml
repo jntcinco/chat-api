@@ -29,4 +29,3 @@ jobs:
         with:
           secret-ids: |
             test/GithubAction/hello
-            arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
