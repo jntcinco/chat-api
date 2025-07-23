@@ -23,19 +23,18 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-west-2
         
-      - name: Get AWS Secret
-        uses: aws-actions/aws-secretsmanager-get-secrets@v2
-        with:
-          secret-ids: |
-            arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
+#      - name: Get AWS Secret
+#        uses: aws-actions/aws-secretsmanager-get-secrets@v2
+#        with:
+#          secret-ids: |
+#            arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
             
-      - name: Print AWS Secrets
-        run: |
-          echo "Test Example: ${{ env.TEST_EXAMPLE }}"
-          echo "Java Home: ${{ env.JAVA_HOME }}"
+#      - name: Print AWS Secrets
+#        run: |
+#          echo "Test Example: ${{ env.TEST_EXAMPLE }}"
+#          echo "Java Home: ${{ env.JAVA_HOME }}"
           
       - name: Test output
         run: |
-          echo "TEST_EXAMPLE: ${{ secrets.TEST_EXAMPLE }}"
-          echo "JAVA_HOME: ${{ secrets.JAVA_HOME }}"
+          echo "Test lang::::::: ${{ vars.TEST_VAR_LANG }}"
           
