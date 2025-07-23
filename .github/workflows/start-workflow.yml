@@ -25,7 +25,7 @@ jobs:
 
       - name: Get caller identity
         run: aws secretsmanager get-resource-policy \
-             --secret-id test/GithubAction/hello-kmEWfz
+             --secret-id test/GithubAction/hello
         
       - name: Get AWS Secret
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
