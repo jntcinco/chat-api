@@ -24,7 +24,8 @@ jobs:
           aws-region: us-west-2
 
       - name: Get caller identity
-        run: aws sts get-caller-identity
+        run: aws secretsmanager get-resource-policy \
+             --secret-id test/GithubAction/hello-kmEWfz
         
       - name: Get AWS Secret
         uses: aws-actions/aws-secretsmanager-get-secrets@v2
