@@ -27,7 +27,7 @@ jobs:
         uses: aws-actions/aws-secretsmanager-get-secrets@v1
         with:
           secret-ids: |
-            test-GithubAction-hello
+            test/GithubAction/hello
             
 #      - name: Print AWS Secrets
 #        run: |
