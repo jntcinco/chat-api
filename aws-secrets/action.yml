@@ -1,0 +1,34 @@
+name: Get Azure Key Vault Secrets
+
+description: This action can be used to get secrets from Azure Key Vault and store them as environment variables.
+
+inputs:
+  access-key-id:
+    description: AWS access key ID
+    required: true
+  access-key:
+    description: The actual AWS access key
+    required: true
+  region:
+    description: AWS Region
+    required: true
+  secrets:
+    description: AWS secrets
+    required: true
+   
+runs:
+  using: "composite"
+  steps:
+    - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ inputs.access-key-id }}
+          aws-secret-access-key: ${{ inputs.access-key }}
+          aws-region: ${{ inputs.region }}
+          
+    - name: Get AWS Secret
+        uses: aws-actions/aws-secretsmanager-get-secrets@v1
+        with:
+          secret-ids: ${{ inputs.secrets }}
+          parse-json-secrets: true
+     
