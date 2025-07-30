@@ -24,10 +24,10 @@ jobs:
           aws-region: us-west-2
         
       - name: Get AWS Secret
-        uses: aws-actions/aws-secretsmanager-get-secrets@v2
+        uses: aws-actions/aws-secretsmanager-get-secrets@v1
         with:
           secret-ids: |
-            arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
+            test-GithubAction-hello
             
 #      - name: Print AWS Secrets
 #        run: |
