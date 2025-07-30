@@ -35,7 +35,7 @@ jobs:
 #          N_JAVA_HOME: ${{ env.AWS_SECRET_JAVA_HOME }}
           
       - name: Get AWS Secret
-        uses: jntcinco/chat-api/.github@test-tag
+        uses: jntcinco/aws-composite-actions/aws-get-secrets@v1
         with:
           access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
