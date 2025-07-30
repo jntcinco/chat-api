@@ -18,22 +18,7 @@ jobs:
       N_TEST_EXAMPLE: "Will be set from the keyvault."
       N_JAVA_HOME: "Will be set from the keyvault."
     steps:
-#      - name: Configure AWS credentials
-#        uses: aws-actions/configure-aws-credentials@v4
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: ${{ secrets.AWS_REGION }}
-        
-#      - name: Get AWS Secret
-#        uses: aws-actions/aws-secretsmanager-get-secrets@v1
-#        with:
-#          secret-ids: |
-#            AWS_SECRET, arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
-#          parse-json-secrets: true
-#          N_TEST_EXAMPLE:  ${{ env.AWS_SECRET_TEST_EXAMPLE }}
-#          N_JAVA_HOME: ${{ env.AWS_SECRET_JAVA_HOME }}
-          
+    
       - name: Get AWS Secret
         uses: jntcinco/aws-composite-actions/aws-get-secrets@v1.0
         with:
