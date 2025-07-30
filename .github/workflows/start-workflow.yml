@@ -34,7 +34,7 @@ jobs:
             
       - name: Print AWS Secrets
         run: |
-          echo "Test Example: ${{ env.AWS_SECRET_TEST_EXAMPLE }}"
+          echo "Test Example 2: $AWS_SECRET_TEST_EXAMPLE"
           echo "Java Home: ${{ env.AWS_SECRET_JAVA_HOME }}"
           
 #      - name: Test output
