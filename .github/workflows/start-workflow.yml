@@ -14,7 +14,9 @@ on:
 jobs:
   aws-secret-manager:
     runs-on: ubuntu-latest
-
+    env:
+      TEST_EXAMPLE: "Will be set from the keyvault."
+      JAVA_HOME: "Will be set from the keyvault."
     steps:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -29,10 +31,10 @@ jobs:
           secret-ids: |
             arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
             
-#      - name: Print AWS Secrets
-#        run: |
-#          echo "Test Example: ${{ env.TEST_EXAMPLE }}"
-#          echo "Java Home: ${{ env.JAVA_HOME }}"
+      - name: Print AWS Secrets
+        run: |
+          echo "Test Example: ${{ env.TEST_EXAMPLE }}"
+          echo "Java Home: ${{ env.JAVA_HOME }}"
           
 #      - name: Test output
 #        run: |
