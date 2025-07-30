@@ -32,10 +32,10 @@ jobs:
             AWS_SECRET, arn:aws:secretsmanager:ap-southeast-2:033376537995:secret:test/GithubAction/hello-kmEWfz
           parse-json-secrets: true
             
-      #- name: Print AWS Secrets
-      #  run: |
-      #    echo "Test Example: ${{ AWS_SECRET_TEST_EXAMPLE }}"
-      #    echo "Java Home: ${{ AWS_SECRET_JAVA_HOME }}"
+      - name: Print AWS Secrets
+        run: |
+          echo "Test Example: ${{ env.AWS_SECRET_TEST_EXAMPLE }}"
+          echo "Java Home: ${{ env.AWS_SECRET_JAVA_HOME }}"
           
 #      - name: Test output
 #        run: |
