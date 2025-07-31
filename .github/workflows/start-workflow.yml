@@ -27,8 +27,11 @@ jobs:
           region: ${{ secrets.AWS_REGION }}
           secrets: |
             AWS_SECRET, ${{ secrets.AWS_SECRET_ARN }}
-          N_TEST_EXAMPLE: ${{ env.AWS_SECRET_TEST_EXAMPLE }}
-          N_JAVA_HOME: ${{ env.AWS_SECRET_JAVA_HOME }}
+
+      - name: Set AWS Secrets variable
+        run: |
+          echo "N_TEST_EXAMPLE=${{ env.AWS_SECRET_TEST_EXAMPLE }}" >> $GITHUB_ENV
+          echo "N_JAVA_HOME=${{ env.AWS_SECRET_JAVA_HOME }}" >> $GITHUB_ENV
             
       - name: Print AWS Secrets
         run: |
