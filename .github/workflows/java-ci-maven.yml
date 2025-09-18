@@ -12,7 +12,8 @@ on:
   #workflow_call:
   #workflow_dispatch:
   pull_request:
-    branches: [master]
+    #branches: [master]
+    types: [closed]
 
 jobs:
   build:
